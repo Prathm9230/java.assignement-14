@@ -25,13 +25,20 @@ public class LL
         temp.next = newnode;
     }
     //This pop method will remove the first element.
-    public void pop()
+    public void popLast()
     {
         if (head == null) {
             System.out.println("list is empty list");
             return;
         }
-        head = head.next;
+       Node secondLast = head;
+        Node Last = head.next;
+        while(Last.next!=null)
+        {
+            Last = Last.next;
+            secondLast=secondLast.next;
+        }
+        secondLast.next=null;
     }
     //We need to crete one method that will print our linked list.
         public void printNode()
@@ -53,8 +60,8 @@ public class LL
         list.appendNode(56);
         list.appendNode(30);
         list.appendNode(70);
-        list.pop();
-        System.out.println("After deleting first node:");
+        list.popLast();
+        System.out.println("After deleting Last node:");
         list.printNode();
     }
 
