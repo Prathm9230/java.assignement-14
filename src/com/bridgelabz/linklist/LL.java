@@ -22,7 +22,7 @@ public class LL
         head = newnode;
     }
     //We need to crete one method that will print our linked list.
-        public void print()
+        public void printNode()
         {
             if (head == null) {
                 System.out.println("list is empty list");
@@ -41,6 +41,6 @@ public class LL
         list.addFirst(70);
         list.addFirst(30);
         list.addFirst(56);
-       list.print();
+       list.printNode();
     }
 }
