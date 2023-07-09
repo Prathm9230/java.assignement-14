@@ -11,6 +11,19 @@ public class LL
             next=null;
         }
     }
+    public void appendNode(int data) {
+        Node newnode = new Node(data);
+        if (head == null) {
+            head = newnode;
+            return;
+        }
+        Node temp=head;
+        while(temp.next!=null)
+        {
+            temp=temp.next;
+        }
+        temp.next=newnode;
+    }
     // To insert data value(node) in between two nodes,insertNode method we need to crete.
     public void insertNode(int prevData, int newData) {
         Node newNode = new Node(newData);
@@ -43,5 +56,13 @@ public class LL
             }
             System.out.println("NULL");
         }
+    public static void main(String[] args)
+    {
+        LL list = new LL();
+        list.appendNode(56);
+        list.appendNode(70);
+        System.out.println("After insertion of 30 in between 56 and 70:")
+            list.inserNode(56,30);
+        list.printNode();
 
 }
