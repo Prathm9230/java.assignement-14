@@ -24,7 +24,7 @@ public class LL
         }
         temp.next = newnode;
     }
-    //This pop method will remove the first element.
+    //This popLast method will remove the last element.
     public void popLast()
     {
         if (head == null) {
