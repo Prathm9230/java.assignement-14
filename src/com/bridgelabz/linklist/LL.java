@@ -11,19 +11,23 @@ public class LL
             next=null;
         }
     }
-    //Secondly we need to create one method that will append nodes to link list
-    public void appendNode(int data) {
-        Node newnode = new Node(data);
+    // To insert data value(node) in between two nodes,insertNode method we need to crete.
+    public void insertNode(int prevData, int newData) {
+        Node newNode = new Node(newData);
         if (head == null) {
-            head = newnode;
-            return;
+            head = newNode;
+        } else {
+            Node current = head;
+            while (current != null) {
+                if (current.data == prevData) {
+                    Node nextNode = current.next;
+                    current.next = newNode;
+                    newNode.next = nextNode;
+                    break;
+                }
+                current = current.next;
+            }
         }
-        Node temp=head;
-        while(temp.next!=null)
-        {
-            temp=temp.next;
-        }
-        temp.next=newnode;
     }
     //We need to crete one method that will print our linked list.
         public void printNode()
