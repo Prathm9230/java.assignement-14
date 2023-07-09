@@ -11,15 +11,19 @@ public class LL
             next=null;
         }
     }
-    //Secondly we need to create one method that will add our nodes to linked list
-    public void addFirst(int data) {
+    //Secondly we need to create one method that will append nodes to link list
+    public void appendNode(int data) {
         Node newnode = new Node(data);
         if (head == null) {
             head = newnode;
             return;
         }
-        newnode.next = head;
-        head = newnode;
+        Node temp=head;
+        while(temp.next!=null)
+        {
+            temp=temp.next;
+        }
+        temp.next=newnode;
     }
     //We need to crete one method that will print our linked list.
         public void printNode()
@@ -35,12 +39,5 @@ public class LL
             }
             System.out.println("NULL");
         }
-        //In main method we are accpeting the data values and calling print()
-    public static void main(String[] args) {
-        LL list = new LL();
-        list.addFirst(70);
-        list.addFirst(30);
-        list.addFirst(56);
-       list.printNode();
-    }
+
 }
