@@ -59,6 +59,27 @@ public class LL
         System.out.println("Number not found");
         return false;
     }
+    public void insertNode(int newData) {
+        Node newNode = new Node(newData);
+
+        if (head == null)
+        {
+            head = newNode;
+        }
+        else {
+            Node currentNode = head;
+            while (currentNode.next != null) {
+                if (currentNode.data == 30 && currentNode.next.data == 70)
+                {
+                    newNode.next = currentNode.next;
+                    currentNode.next = newNode;
+                    break;
+                }
+                currentNode = currentNode.next;
+            }
+        }
+    }
+
 
     //We need to crete one method that will print our linked list.
         public void printNode()
@@ -81,7 +102,10 @@ public class LL
         list.appendNode(30);
         list.appendNode(70);
         list.printNode();
-        System.out.println(list.findNode(30));
+        list.insertNode(40);
+        list.printNode();
+       // System.out.println(list.findNode(30));
+
     }
 
 }
