@@ -2,6 +2,7 @@ package com.bridgelabz.linklist;
 public class LL
 { //First We need to create Node class for linked list,that contains our data and nextpointer.
     Node head;
+    int number;
     class Node{
         int data;
         Node next;
@@ -11,18 +12,77 @@ public class LL
             next=null;
         }
     }
-    //Secondly we need to create one method that will add our nodes to linked list
-    public void addFirst(int data) {
+    //Secondly we need to create one method that will append nodes to link list
+    public void appendNode(int data) {
         Node newnode = new Node(data);
         if (head == null) {
             head = newnode;
             return;
         }
-        newnode.next = head;
-        head = newnode;
+        Node temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        temp.next = newnode;
     }
+    //This pop method will remove the first element.
+    public void popLast()
+    {
+        if (head == null) {
+            System.out.println("list is empty list");
+            return;
+        }
+       Node secondLast = head;
+        Node Last = head.next;
+        while(Last.next!=null)
+        {
+            Last = Last.next;
+            secondLast=secondLast.next;
+        }
+        secondLast.next=null;
+    }
+    public boolean findNode(int data)
+    {
+        if (head == null) {
+            System.out.println("list is empty list");
+        }
+        Node temp = head;
+        while(temp!=null)
+        {
+            if(temp.data == data)
+            {
+                System.out.println("Number is found.");
+                return true;
+            }
+            temp=temp.next;
+        }
+        System.out.println("Number not found");
+        return false;
+    }
+    public void insertNode(int newData) {
+        Node newNode = new Node(newData);
+
+        if (head == null)
+        {
+            head = newNode;
+        }
+        else {
+            Node currentNode = head;
+            while (currentNode.next != null) {
+                if (currentNode.data == 30 && currentNode.next.data == 70)
+                {
+                    newNode.next = currentNode.next;
+                    currentNode.next = newNode;
+                    break;
+                }
+                currentNode = currentNode.next;
+            }
+        }
+    }
+
+
     //We need to crete one method that will print our linked list.
-        public void print()
+        public void printNode()
         {
             if (head == null) {
                 System.out.println("list is empty list");
@@ -35,12 +95,17 @@ public class LL
             }
             System.out.println("NULL");
         }
-        //In main method we are accpeting the data values and calling print()
+
     public static void main(String[] args) {
         LL list = new LL();
-        list.addFirst(70);
-        list.addFirst(30);
-        list.addFirst(56);
-       list.print();
+        list.appendNode(56);
+        list.appendNode(30);
+        list.appendNode(70);
+        list.printNode();
+        list.insertNode(40);
+        list.printNode();
+       // System.out.println(list.findNode(30));
+
     }
+
 }
