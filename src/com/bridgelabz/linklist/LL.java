@@ -35,12 +35,4 @@ public class LL
             }
             System.out.println("NULL");
         }
-        //In main method we are accpeting the data values and calling print()
-    public static void main(String[] args) {
-        LL list = new LL();
-        list.addFirst(70);
-        list.addFirst(30);
-        list.addFirst(56);
-       list.print();
-    }
 }
