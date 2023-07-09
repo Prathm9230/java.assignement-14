@@ -79,6 +79,17 @@ public class LL
             }
         }
     }
+    public void deleteIelement(int data)//delete Inserted element
+    {
+        int number;
+        Node temp =head;
+        while (temp.next.data!=data)
+        {
+           temp=temp.next;
+         }
+             temp.next=temp.next.next;
+             temp=null;
+    }
 
 
     //We need to crete one method that will print our linked list.
@@ -103,6 +114,7 @@ public class LL
         list.appendNode(70);
         list.printNode();
         list.insertNode(40);
+        list.deleteIelement(40);
         list.printNode();
        // System.out.println(list.findNode(30));
 
