@@ -106,6 +106,31 @@ public class LL
             }
             System.out.println("NULL");
         }
+    public void sortingAsc(){
+
+        Node temp=head;
+        Node index=null;
+        int temp1;
+        if (head==null)
+        {
+            return;
+        }
+        else {
+            while (temp!=null) {
+                index = temp.next;
+                while (index != null) {
+                    if (temp.data > index.data) {
+                        temp1 = temp.data;
+                        temp.data = index.data;
+                        index.data = temp1;
+                    }
+                    index = index.next;
+                }
+                temp = temp.next;
+            }
+        }
+    }
+
 
     public static void main(String[] args) {
         LL list = new LL();
@@ -114,7 +139,8 @@ public class LL
         list.appendNode(70);
         list.printNode();
         list.insertNode(40);
-        list.deleteIelement(40);
+       // list.deleteIelement(40);
+        list.sortingAsc();
         list.printNode();
        // System.out.println(list.findNode(30));
 
