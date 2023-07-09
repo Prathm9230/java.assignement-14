@@ -35,4 +35,7 @@ public class LL
             }
             System.out.println("NULL");
         }
+    public static void main(String[] args)
+    {
+        LL list = new list();
 }
