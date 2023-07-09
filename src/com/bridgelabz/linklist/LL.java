@@ -2,6 +2,7 @@ package com.bridgelabz.linklist;
 public class LL
 { //First We need to create Node class for linked list,that contains our data and nextpointer.
     Node head;
+    int number;
     class Node{
         int data;
         Node next;
@@ -40,6 +41,25 @@ public class LL
         }
         secondLast.next=null;
     }
+    public boolean findNode(int data)
+    {
+        if (head == null) {
+            System.out.println("list is empty list");
+        }
+        Node temp = head;
+        while(temp!=null)
+        {
+            if(temp.data == data)
+            {
+                System.out.println("Number is found.");
+                return true;
+            }
+            temp=temp.next;
+        }
+        System.out.println("Number not found");
+        return false;
+    }
+
     //We need to crete one method that will print our linked list.
         public void printNode()
         {
@@ -60,9 +80,8 @@ public class LL
         list.appendNode(56);
         list.appendNode(30);
         list.appendNode(70);
-        list.popLast();
-        System.out.println("After deleting Last node:");
         list.printNode();
+        System.out.println(list.findNode(30));
     }
 
 }
