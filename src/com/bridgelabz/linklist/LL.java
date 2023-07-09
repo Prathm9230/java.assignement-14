@@ -11,23 +11,27 @@ public class LL
             next=null;
         }
     }
-    // To insert data value(node) in between two nodes,insertNode method we need to crete.
-    public void insertNode(int prevData, int newData) {
-        Node newNode = new Node(newData);
+    //Secondly we need to create one method that will append nodes to link list
+    public void appendNode(int data) {
+        Node newnode = new Node(data);
         if (head == null) {
-            head = newNode;
-        } else {
-            Node current = head;
-            while (current != null) {
-                if (current.data == prevData) {
-                    Node nextNode = current.next;
-                    current.next = newNode;
-                    newNode.next = nextNode;
-                    break;
-                }
-                current = current.next;
-            }
+            head = newnode;
+            return;
         }
+        Node temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        temp.next = newnode;
+    }
+    //This pop method will remove the first element.
+    public void pop()
+    {
+        if (head == null) {
+            System.out.println("list is empty list");
+            return;
+        }
+        head = head.next;
     }
     //We need to crete one method that will print our linked list.
         public void printNode()
@@ -43,5 +47,15 @@ public class LL
             }
             System.out.println("NULL");
         }
+
+    public static void main(String[] args) {
+        LL list = new LL();
+        list.appendNode(56);
+        list.appendNode(30);
+        list.appendNode(70);
+        list.pop();
+        System.out.println("After deleting first node:");
+        list.printNode();
+    }
 
 }
