@@ -39,5 +39,12 @@ public class LL
             }
             System.out.println("NULL");
         }
+       public static void main(String[] args) {
+        LL list = new LL();
+        list.appendNode(56);
+        list.appendNode(30);
+        list.appendNode(70);
+       list.printNode();
+    }
 
 }
